@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+<!--
+
+this are static value which we are hardcoded , but we don't want it hardcoded,
+so, use properties file and ${student.name} value comes from properties file.
+
+ <bean id = "student" class = "com.seleniumexpress.loadingfrompropertiesfile.Student">
+	<property name = "name" value = "abhilash"/>
+	<property name = "interestedCourse" value = "java"/>
+	<property name = "hobby" value = "cricket"/
+</bean> -->
+
+<context:annotation-config></context:annotation-config>
+
+<context:property-placeholder location="classpath:student-info.properties"/>
+
+<bean id = "student" class = "com.seleniumexpress.loadingfrompropertiesfile.Student">
+	<!-- 
+	
+	we don't want to set the properties here by using xml tags,
+	we want to do this literal values by using annotation and for this we can use
+	@value annotation in  Student class.
+	
+	 <property name = "name" value = "${student.name}"/>
+	<property name = "interestedCourse" value = "${student.interestedCourse}"/>
+	<property name = "hobby" value = "${student.hobby}"/> -->
+	
+</bean>
+        
+</beans>
